@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise #5: Input check</title>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+        }
+
+        .err {
+            color: red;
+            font-size: 0.7em;
+        }
+    </style>
+    <script>
+        /* TODO complete this part */
+    </script>
+</head>
+<body>
+
+<form name="pw">
+    <table>
+        <tr>
+            <td>Password (min 6 characters):</td>
+            <td><input type="password" name="password1" id="password1" size="10" placeholder="Password" ></td>
+            <td>
+                <div id="pw1_check" class="err"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Repeat password:</td>
+            <td><input type="password" name="password2" id="password2" size="10" placeholder="Password"></td>
+            <td>
+                <div id="pw2_check" class="err"></div>
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Submit" id="submitBtn"/>
+</form>
+
+<script>
+
+// const submitBtn = document.getElementById('submitBtn');
+// submitBtn.style.display = "none";
+// password.addEventListener('focusout', checkValue);
+// password2.addEventListener('focusout', checkEqual);
+
+//  var password1=  document.getElementById("password1")  ;
+//  var password2=document.getElementById("password2");
+//  var msg1=document.getElementById("pw1_check");
+//  var msg2=document.getElementById("pw2_check");
+//  const form = document.querySelector('form');
+
+//  password1.addEventListener('focusout', checkValue);
+// password2.addEventListener('focusout', checkEqual);
+// function checkValue(){
+// if (password1.value.length<6 ){
+//    msg1.innerText="too short";}
+//    else{
+//         error1.style.display = "none"
+
+// }}
+// function checkEqual(){
+//    if(password1.value == password2.value && password1.value.length<6 ){
+       
+//     submitBtn.style.display = "block";}
+//     else if (password.value !== password2.value){
+//        msg2.innerText = 'The two passwords do not match';}
+//     else
+//         msg2.style.display = "none";}
+
+
+const submitBtn = document.getElementById('submitBtn');
+submitBtn.style.display = "none";
+
+const password = document.getElementById('password1');
+const repeat_password = document.getElementById('password2');
+const msg1 = document.getElementById('pw1_check');
+const msg2 = document.getElementById('pw2_check');
+const form = document.querySelector('form');
+
+
+password.addEventListener('focusout', checkValue);
+repeat_password.addEventListener('focusout', checkEqual);
+
+function checkValue() {
+    if (password.value.length < 6)
+    msg1.innerText = 'Too Short';
+    else
+        msg1.style.display = "none"
+
+}
+
+function checkEqual() {
+    if (password.value === repeat_password.value && password.value.length >= 6)
+        submitBtn.style.display = "block";
+    else if (password.value !== repeat_password.value)
+      msg2.innerText = 'The two passwords do not match';
+    else
+        msg2.style.display = "none";
+}
+</script>
+</body>
+</html>
+
